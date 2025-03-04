@@ -1,0 +1,122 @@
+<div class="back py-5">
+  <div class="container px-4 py-3 mx-auto">
+    <div class="card card0">
+      <div class="d-flex flex-lg-row flex-column-reverse">
+        <div class="card card2">
+          <div class="my-auto mx-md-5 px-md-5 right">
+            <div class="row justify-content-center px-3 mb-3">
+              <img
+                class="rounded img-fluid"
+                id="logoLeft"
+                src="assets\logo.jpg"
+              />
+            </div>
+            <h3 class="mb-5 text-center heading text-white">
+              We are Fixo dot Com
+            </h3>
+            <h3 class="text-white">We are more than just a company</h3>
+            <small class="text-white">Fxio dot Com helps you manage your spending, set limits on your cards, track your expenses, and provides insights on your spending habits. With Fxio dot Com, you can make informed financial decisions and save money more effectively.</small>
+          </div>
+        </div>
+        <div class="card card1">
+          <div class="row justify-content-center my-auto">
+            <div class="col-md-8 col-10">
+              <h3 class="mb-5 text-center heading">We are Fixo dot Com</h3>
+              <h6 class="msg-info">Please login to your account</h6>
+              <form #loginForm="ngForm" (ngSubmit)="onLogin()">
+                <div class="form-group">
+                  <label class="form-control-label text-muted">Username</label>
+                  <input
+                    type="text"
+                    id="email"
+                    name="email"
+                    placeholder="Username or email id"
+                    class="form-control"
+                    [(ngModel)]="userName"
+                    #emailInput="ngModel"
+                    required
+                  />
+                  <div
+                    *ngIf="
+                      emailInput.invalid &&
+                      (emailInput.dirty || emailInput.touched)
+                    "
+                    class="text-danger"
+                  >
+                    Username is required.
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-control-label text-muted">Password</label>
+                  <input
+                    type="password"
+                    id="psw"
+                    name="psw"
+                    placeholder="Password"
+                    class="form-control"
+                    [(ngModel)]="password"
+                    #passwordInput="ngModel"
+                    required
+                  />
+                  <div
+                    *ngIf="
+                      passwordInput.invalid &&
+                      (passwordInput.dirty || passwordInput.touched)
+                    "
+                    class="text-danger"
+                  >
+                    Password is required.
+                  </div>
+                </div>
+
+                <div class="row justify-content-center my-3 px-3">
+                  <button
+                    class="btn-block btn-color"
+                    
+                  >
+                    Login to Fxio dot Com
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="bottom text-center mb-3">
+            <p class="sm-text mx-auto mb-5">
+              Don't have an account?
+              <button class="btn btn-white ml-2">
+                <a id="login-link" data-bs-toggle="modal" data-bs-target="#signupmodal">Signup</a>
+              </button>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="signupmodal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1>Register here</h1>
+        <button class="btn btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+         <form (ngSubmit)="registerNow()">
+                              <input type="text" name="txt" placeholder="User name" class="f1 form-control" [(ngModel)]="userName" required="">
+                              <input type="email" name="email" placeholder="Email" class="f1 form-control" [(ngModel)]="email" required="">
+                              <input type="password" name="pswd" placeholder="Password" required="" [(ngModel)]="password" class="f1">
+                              <input type="text" name="pswd" placeholder="Phone Number" required="" [(ngModel)]="phone" class="f1">
+                              <br><br>
+                              <button type="submit" class="btn btn-primary">Sign up</button>
+                              <button class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                            </form>
+      </div>
+    </div>
+  </div>
+  
+  
+  </div>
+  
+  

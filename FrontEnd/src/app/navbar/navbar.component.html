@@ -1,0 +1,115 @@
+<div class="wrapper d-flex align-items-stretch">
+    <nav id="sidebar" [class.active]="isselected" #myTag>
+      <div class="custom-menu">
+        <button
+          type="button"
+          (click)="togglebar()"
+          id="sidebarCollapse"
+          class="btn btn-primary"
+        ></button>
+      </div>
+      <div
+        class="img bg-wrap text-center py-4"
+        style="background-image: url('assets/images/bg_1.jpg')"
+      >
+        <div class="user-logo">
+          <div
+            class="img"
+            style="background-image: url(assets/logo.jpg)"
+          ></div>
+          <h3>{{ username }}</h3>
+        </div>
+      </div>
+
+      <ul class="list-unstyled components mb-5">
+        <li class="active">
+          <a
+            routerLink="/user/dashboard"
+            routerLinkActive="active-link"
+            [routerLinkActiveOptions]="{ exact: true }"
+          >
+            <span class="fa fa-home mr-3"></span>Dashboard
+          </a>
+        </li>
+
+        <!-- Incident Dropdown -->
+        <li class="nav-item dropdown">
+          <a
+            class="dropdown-toggle"
+            id="incidentDropdown"
+            role="button"
+            data-bs-toggle="collapse"
+            href="#incidentMenu"
+            aria-expanded="false"
+            aria-controls="incidentMenu"
+          >
+            <span class="fa-regular fa-credit-card mr-3"></span>Incident
+          </a>
+          <ul class="collapse list-unstyled" id="incidentMenu">
+            <li>
+              <a
+                routerLink="/user/createincident"
+                routerLinkActive="active-link"
+                [routerLinkActiveOptions]="{ exact: true }"
+              >
+                <span class="fa fa-plus-circle mr-3"></span>Create Incident
+              </a>
+            </li>
+            <li>
+              <a
+                routerLink="/user/viewincident"
+                routerLinkActive="active-link"
+                [routerLinkActiveOptions]="{ exact: true }"
+              >
+                <span class="fa fa-eye mr-3"></span>View Incident
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+            <a
+              class="dropdown-toggle"
+              id="requestDropdown"
+              role="button"
+              data-bs-toggle="collapse"
+              href="#requestMenu"
+              aria-expanded="false"
+              aria-controls="requestMenu"
+            >
+              <span class="fa-solid fa-file-arrow-up mr-3"></span> Request
+            </a>
+            <ul class="collapse list-unstyled" id="requestMenu">
+              <li>
+                <a
+                  routerLink="/user/changerequest"
+                  routerLinkActive="active-link"
+                  [routerLinkActiveOptions]="{ exact: true }"
+                >
+                  <span class="fa fa-plus-circle mr-3"></span>Create Request
+                </a>
+              </li>
+              <li>
+                <a
+                  routerLink="/user/viewrequest"
+                  routerLinkActive="active-link"
+                  [routerLinkActiveOptions]="{ exact: true }"
+                >
+                  <span class="fa fa-eye mr-3"></span>View Request
+                </a>
+              </li>
+            </ul>
+          </li>
+        <li>
+          <a routerLinkActive="active-link" (click)="logout()"
+            ><span class="fa fa-sign-out mr-3"></span> Sign Out</a
+          >
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Page Content  -->
+    <div id="content" class="p-4 p-md-5 pt-5">
+      <router-outlet></router-outlet>
+    </div>
+</div>

@@ -1,0 +1,49 @@
+.incident-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100vh;
+    text-align: center;
+    position: relative;
+    background: linear-gradient(135deg, #f8e4c9, #eacda3); /* Soft Skin-Colored Gradient */
+    overflow: hidden;
+    padding-top: 150px; /* Moves buttons to the upper middle */
+    font-family: 'Poppins', sans-serif; /* Modern & Clean Font */
+  }
+  
+  .row {
+    display: flex;
+  }
+  
+  .btn-large {
+    width: 350px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    border-radius: 12px;
+    border: none;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3); /* Added shadow for depth */
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .btn-large:hover {
+    box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.4); /* Enhanced shadow on hover */
+  }
+  
+  .btn-info {
+    background: #17a2b8;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .btn-warning {
+    background: #ff9800;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    margin-left: 200px;
+  }

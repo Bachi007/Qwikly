@@ -1,0 +1,181 @@
+<div class="col-md-10 col-10">
+    <div class="col-md-10 col-10"></div>
+    <div class="col-md-2 col-1">
+        <button class="btn btn-info" data-bs-toggle="modal" data-bs-target="#createUserModal" (click)="openModal()">
+            Create User
+        </button>
+    </div>    
+</div>
+
+
+
+
+
+
+<div class="col-md-10">
+    <table class="table table-dark table-striped table-hover table-bordered text-center ">
+        <thead class="thead-light">
+            <tr>
+                <th>S.No</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Mobile</th>
+                <th>Role</th> 
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let a of arr; index as i">
+                <td>{{ i + 1 }}</td>
+                <td>{{ a.userName }}</td>
+                <td>{{ a.email }}</td>
+                <td>{{ a.mobile }}</td>
+                <td>{{ a.role }}</td>
+                <td>
+                    <button class="btn btn-light" (click)="seletUser(a._id)" data-bs-toggle="modal" data-bs-target="#updateUserModal">
+                        <i class="fa-solid fa-pen"></i>
+                    </button>
+                    <button class="btn btn-light" (click)="DeleteUser(a._id)">
+                        <i class="fa-solid fa-trash"></i>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="modal fade" id="updateUserModal" tabindex="-1" aria-labelledby="updateUserModalLabel" aria-hidden="true" *ngIf ="selectedUser">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="updateUserModalLabel">Update User</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label class="form-label">Name</label>
+              <input type="text" class="form-control" [(ngModel)]="selectedUser.userName" name="userName" disabled>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Email</label>
+              <input type="email" class="form-control" [(ngModel)]="selectedUser.email" name="email" disabled>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Mobile</label>
+              <input type="text" class="form-control" [(ngModel)]="selectedUser.mobile" name="mobile">
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Role</label>
+              <select class="form-select" [(ngModel)]="selectedUser.role" name="role">
+                <option value="User">User</option>
+                <option value="ITSupport">IT Support</option>
+                <option value="Manager">Manager</option>
+              </select>
+            </div>
+            <div class="text-center">
+              <button type="button" class="btn btn-success" (click)="UpdateUser(selectedUser._id)">Update</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="modal fade" id="createUserModal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalLabel">Create User</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form [formGroup]="userForm" (ngSubmit)="CreateUser(userForm)">
+            
+            <div class="mb-3">
+              <label class="form-label">Name</label>
+              <input type="text" class="form-control" formControlName="userName">
+              <small class="text-danger" *ngIf="userForm.get('name')?.invalid && userForm.get('name')?.touched">
+                Name is required (min 3 characters)
+              </small>
+            </div>
+  
+            <div class="mb-3">
+              <label class="form-label">Mobile Number</label>
+              <input type="text" class="form-control" formControlName="mobile">
+              <small class="text-danger" *ngIf="userForm.get('mobile')?.invalid && userForm.get('mobile')?.touched">
+                Enter a valid 10-digit mobile number
+              </small>
+            </div>
+  
+            <div class="mb-3">
+              <label class="form-label">Email</label>
+              <input type="email" class="form-control" formControlName="email">
+              <small class="text-danger" *ngIf="userForm.get('email')?.invalid && userForm.get('email')?.touched">
+                Enter a valid email
+              </small>
+            </div>
+  
+            <div class="mb-3">
+                <label class="form-label">Role</label>
+                <select class="form-select" formControlName="role">
+                  <option value="" disabled>Select Role</option>
+                  <option value="EndUser">User</option>
+                  <option value="ITSupport">IT Support</option>
+                  <option value="Admin">Admin</option>
+                </select>
+              </div>
+  
+            <div class="mb-3">
+              <label class="form-label">Password</label>
+              <input type="password" class="form-control" formControlName="password">
+              <small class="text-danger" *ngIf="userForm.get('password')?.invalid && userForm.get('password')?.touched">
+                Password must be at least 6 characters
+              </small>
+            </div>
+  
+            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" [disabled]="userForm.invalid">Submit</button>
+  
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,31 @@
+<div class="container mt-4">
+    <h2 class="mb-3 text-primary fw-bold text-center">Incident Requests</h2>
+  
+    <div class="table-responsive shadow-lg rounded"id="mytable">
+      <table class="table table-hover text-center align-middle">
+        <thead class="table-dark">
+          <tr>
+            
+            <th>Title</th>
+            <th>Description</th>
+            <th>Priority</th>
+            <th>Category</th>
+            <th>Comments</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+  
+        <tbody>
+          <tr *ngFor="let i of incidentreq">
+            <td>{{ i.title }}</td>
+            <td>{{i.description }}</td>
+            <td>{{ i.priority }}</td>
+            <td>{{i.comments}}</td>
+            <td>{{ i.category }}</td>
+           <td><button class="btn btn-danger" (click)="deleteIncident(i._id)"><i class="fa fa-trash"></i></button></td>
+           
+            </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

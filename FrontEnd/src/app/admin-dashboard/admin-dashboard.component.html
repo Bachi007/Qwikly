@@ -1,0 +1,63 @@
+<div class="container-fluid">
+    <div class="row">
+      <div>
+        <h1>Welcome {{username}}</h1>
+        <br />
+      </div>
+    </div>
+  
+    <div class="row">
+        <div class="col-md-4 col-12 col-xl-3">
+            <div class="card bg-c-blue order-card">
+                <div class="card-block">
+                    <h6 class="m-b-20">Users</h6>
+                    <h2 class="text-right"><img src="assets/images/rupee.png" class="f-left" height="30" width="30" alt=""> <span>{{count.users}}</span></h2>
+                    <p class="m-b-0" style="margin-left: 20px;">Total Users</p>
+                   
+                </div>
+            </div>
+        </div>
+      <div class="col-md-4 col-12 col-xl-3">
+          <div class="card bg-c-green order-card">
+              <div class="card-block">
+                  <h6 class="m-b-20">Incidents</h6>
+                  <h2 class="text-right"> <img src="assets/images/credit.png" class="f-left" height="50" width="50" alt=""> <span>{{count.incidents}}</span></h2>
+                  <p class="m-b-0">Total Incidents</p>
+              </div>
+          </div>
+      </div>
+      
+      <div class="col-md-4 col-12 col-xl-3">
+          <div class="card bg-c-yellow order-card">
+              <div class="card-block">
+                  <h6 class="m-b-20">Change Requests</h6>
+                  <h2 class="text-right"><img src="assets/images/trans.webp" class="f-left" height="50" width="50" alt=""><span>{{count.changerequest}}</span></h2>
+                  <p class="m-b-0">Total Change Requests</p>
+              </div>
+          </div>
+      </div>
+
+        
+     
+      <div class="mt-5">
+        <h4>Daily Tasks</h4>
+        <div class="card">
+            <div class="card-body" style="width:50%">
+                <!-- Placeholder for Chart -->
+                <canvas 
+                baseChart 
+                [data]="pieChartData"
+                [options]="pieChartOptions"
+                [type]="pieChartType"
+                [labels]="pieChartLabels"
+                [legend]="true">
+              </canvas>
+              
+              
+                  
+            </div>
+        </div>
+    </div>
+</div>
+ 
+  
